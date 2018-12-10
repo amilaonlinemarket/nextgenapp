@@ -1,0 +1,38 @@
+
+<!-- <p>{{dataSet}}</p> -->
+<div id="products" class="row view-group sort" >
+    <div class="item col-xs-4 col-lg-4" *ngFor="let data of jsonParse(dataSet)">
+                                    
+        <div [ngClass]="data.displayIndex !=10000 ? 'thumbnail cardTop':'thumbnail card'">
+        <div class="img-event">
+            <img class="group list-group-image img-fluid" src={{data.img.thumb}} alt="" >
+            <div class="text-block" >{{data.price.value | currency:"LKR": "symbol-narrow"}}</div>
+        </div>
+        <div class="caption card-body">
+            <div class="row">
+                    <button type="button" data-toggle="tooltip" title={{data.name}} class="asLink" data-toggle="modal" [attr.data-target]="'#' + data._id">
+                            {{data.name.length > 30 ? ((data.name|slice:0:30)+'...'):(data.name)}}
+                          </button>
+                    <ul class="list-unstyled card-feature-list">
+                        <li *ngFor="let point of filterObject(data.keyPoints)" >
+                                {{point.words.length > 25 ? ((point.words|slice:0:25)+'...'):(point.words)}}
+                                </li> 
+                    </ul>
+                    <div class="card-detail">
+                            <h2 class="card-value">{{data.tutor.name.length > 25 ? ((data.tutor.name|slice:0:25)+'...'):(data.tutor.name)}}</h2>
+                            <span class="per-title">{{data.tutor.qualification}}</span>
+                            <div class="card-value">
+                                    <span  *ngFor="let loc of data.location; let isLast=last" >
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        <span *ngIf="jsonParse(display).location=='city'">{{loc.city}}{{isLast ? '' : ', '}}</span>
+                                        <span *ngIf="jsonParse(display).location=='devision'">{{loc.devision}}{{isLast ? '' : ', '}}</span>
+                                     </span>
+                                 </div>
+                                 <span class="topright"> {{ data.datePosted|date :  "MMM d, y"}}</span> 
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div> 
+</div>
+

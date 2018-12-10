@@ -1,0 +1,175 @@
+
+   <section>
+      <div class="container" style="padding-top: 8rem"> 
+      <div class="row">
+              <div class="col-lg-2 divider" >
+                  <div class="row">
+                          <div class="btn-group">
+                                  <a  data-toggle="dropdown" href="#" id="locationDropdown">All Sri Lanka 
+                                      <i class="fa fa-angle-down" style="font: size 24px"></i>
+                                      <!-- <i class="fa fa-sort-down" style="font-size:24px" aria-hidden="true"></i>
+                                      <span class="caret"></span> -->
+                                    </a>
+                                    <ul id="cityList" class="dropdown-menu" >
+                                    <li class="dropdown-item " *ngFor="let city of cities">
+                                          <button class="asLink" (click)="loadMultiData(city.id)">{{city.name}}</button>
+                                      </li>                                            
+                                  </ul>
+                                </div>
+                  </div>
+                  <div class="row">
+                          <ul id="dropdown-devision">
+                              <li class="dropdown-item customLink" *ngFor="let devision of devisions">
+                                  <button class="asLink" (click)="loadData(devision)">{{ devision }}</button>
+                              </li>
+                          </ul>
+                  </div>
+              </div>
+              <div class="col-lg-10">
+                      <ngx-loading [show]="loading" [config]="{backdropBackgroundColour: 'rgba(0,0,0,0.0)',
+                      primaryColour: 'blue', secondaryColour: 'red', tertiaryColour: 'yellow'}">
+                      </ngx-loading>
+                      <div id="selectArea">
+                              <input type="text" value="{{selectedCity}}" ([ngModel])="selectedCity" class="asDiv"/>
+                           </div>
+                      <div class="row">
+                              <div class="col-lg-12" style="background-image: -moz-linear-gradient(top,#fafafa,#e8e8e8)">
+                                      <div class="col-lg-4 pull-left">
+                                              <div class="form-group sort">
+                                                      <div class="col-my-2">
+                                                      <select class="form-control" id="gender1">
+                                                        <option (click)="sortBy(1)" *ngIf="enableSort(template) !=-1">Low - High Price </option>
+                                                        <option (click)="sortBy(2)" *ngIf="enableSort(template) !=-1">High - Low Price</option>
+                                                        <option (click)="sortBy(3)" >Asc - DatePosted</option>
+                                                        <option (click)="sortBy(4)">Dsc - DatePosted</option>
+                                                      </select>          
+                                                      </div>
+                                              </div>    
+                                      </div>
+                              </div>
+                      </div> 
+                      <!-- <div id="products" class="row view-group sort" >
+                          <div class="col-lg-12 my-3 not-found" >
+                              Internal server error. Try again later
+                        </div>
+                      </div> -->
+                      <!-- <div id="products" class="row view-group sort" > -->
+                        <!-- <div class="col-lg-12 my-3 not-found" *ngIf="error == true">
+                              Internal server error. Try again later
+                        </div>
+                          <div class="col-lg-12 my-3 not-found" *ngIf=" error != true && result?.length == 0">
+                              Record not found
+                          </div> -->
+                        
+                      <business type="{{template}}" dataSet="{{dataSet}}" display="{{display}}"></business>
+                          
+                      <!-- <div id="products" class="row view-group sort" >
+                        <div class="col-lg-12 my-3 not-found" *ngIf="error == true">
+                              Internal server error. Try again later
+                        </div>
+                          <div class="col-lg-12 my-3 not-found" *ngIf=" error != true && result?.length == 0">
+                              Record not found
+                          </div>
+                                  <div class="item col-xs-4 col-lg-4" *ngFor="let data of result">
+                                    
+                                          <div [ngClass]="data.displayIndex !=10000 ? 'thumbnail cardTop':'thumbnail card'">
+                                          <div class="img-event">
+                                              <img class="group list-group-image img-fluid" src={{data.img.thumb}} alt="" >
+                                              <div class="text-block" >{{data.price.value | currency:"LKR": "symbol-narrow"}}</div>
+                                          </div>
+                                          <div class="caption card-body">
+                                              <div class="row">
+                                                      <button type="button" data-toggle="tooltip" title={{data.name}} class="asLink" data-toggle="modal" [attr.data-target]="'#' + data._id">
+                                                              {{data.name.length > 30 ? ((data.name|slice:0:30)+'...'):(data.name)}}
+                                                            </button>
+                                                      <ul class="list-unstyled card-feature-list">
+                                                          <li *ngFor="let point of filterObject(data.keyPoints)" >
+                                                                  {{point.words.length > 25 ? ((point.words|slice:0:25)+'...'):(point.words)}}
+                                                                  </li> 
+                                                      </ul>
+                                                      <div class="card-detail">
+                                                              <h2 class="card-value">{{data.tutor.name.length > 25 ? ((data.tutor.name|slice:0:25)+'...'):(data.tutor.name)}}</h2>
+                                                              <span class="per-title">{{data.tutor.qualification}}</span>
+                                                              <div class="card-value">
+                                                                      <span  *ngFor="let loc of data.location; let isLast=last" >
+                                                                          <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                                          <span *ngIf="displayLocation=='city'">{{loc.city}}{{isLast ? '' : ', '}}</span>
+                                                                          <span *ngIf="displayLocation=='devision'">{{loc.devision}}{{isLast ? '' : ', '}}</span>
+                                                                       </span>
+                                                                   </div>
+                                                                   <span class="topright"> {{ data.datePosted|date :  "MMM d, y"}}</span> 
+                                                      </div>
+                                              </div>
+                                          </div>
+                                      </div>
+<div class="modal fade" id="{{data._id}}">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"> {{ data.name }}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+              {{ data.description }} 
+              <div class="container"> 
+                      <div class="info-sec">
+                              <div class="container-fliud">
+                                  <div class="wrapper row">
+                                      <div class="preview col-md-6">
+                                          <div class="preview-pic tab-content">
+                                            <div class="tab-pane active" id="pic-1"><img src="{{data.img.thumb}}" /></div>
+                                            <div class="tab-pane" id="pic-2"><img src="{{data.img.otherImages[0]}}" /></div>
+                                            <div class="tab-pane" id="pic-3"><img src="{{data.img.otherImages[1]}}" /></div>
+                                            <div class="tab-pane" id="pic-4"><img src="{{data.img.otherImages[2]}}" /></div>
+                                            <div class="tab-pane" id="pic-5"><img src="{{data.img.otherImages[2]}}" /></div>
+                                          </div>
+                                          <ul class="preview-thumbnail nav nav-tabs">
+                                            <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{data.img.otherImages[0]}}" /></a></li>
+                                            <li><a data-target="#pic-2" data-toggle="tab"><img src="{{data.img.otherImages[0]}}" /></a></li>
+                                            <li><a data-target="#pic-3" data-toggle="tab"><img src="{{data.img.otherImages[0]}}" /></a></li>
+                                            <li><a data-target="#pic-4" data-toggle="tab"><img src="{{data.img.otherImages[0]}}" /></a></li>
+                                            <li><a data-target="#pic-5" data-toggle="tab"><img src="{{data.img.otherImages[0]}}" /></a></li>
+                                          </ul>
+                                      </div>
+                                      <div class="details col-md-6">
+                                          <div class="card-detail">
+                                                  <h2 class="card-value">{{data.tutor.name}}</h2>
+                                                  <span class="per-title">{{data.tutor.qualification}}</span>
+                                                  <h2 class="card-value">Mobile : {{data.tutor.contact.phone}}</h2>
+                                                  <h2  class="card-value">{{data.tutor.contact.email}}</h2>
+                                          </div>
+                                              <ul class="list-unstyled card-feature-list ">
+                                                  <li *ngFor="let point of data.keyPoints">
+                                                      <span [ngClass]="point.isHighlight==true ? 'highlight-text':''">{{point.words}}</span></li>
+                                              </ul>
+                                          <h4 class="price" *ngIf="data.price !=undefined">Fee: <span>Rs {{data.price.value}}/{{data.price.logic}}</span></h4>
+                                          <p class="vote"><span  *ngFor="let loc of data.location; let isLast=last" >
+                                                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                  {{loc.devision}},{{loc.city}}{{isLast ? '' : ', '}}
+                                               </span></p>
+                                         </div>
+                                  </div>
+                              </div>
+                              </div>
+                  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                              </div>
+                              
+                      </div> -->
+              <!-- </div> -->
+  </div>
+ </div>
+ </div>
+      
+  <div class="container" style="padding-top: 8rem">
+            </div>
+            </section>
+
+
+

@@ -1,0 +1,16 @@
+<div class="col">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            All Sri Lanka
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item" (click)="loadCities('colombo')">Colombo</button>
+            <button class="dropdown-item" (click)="loadCities('gampaha')">Gampaha</button>
+            <button class="dropdown-item" (click)="loadCities('all')">Anuradhapura</button>
+        </div>
+      </div>
+      <div>
+          <ul><li *ngFor="let city of cities" >
+            <button (click)="filterBycriteria(city)">{{city}}</button></li></ul>
+      </div>
+</div>

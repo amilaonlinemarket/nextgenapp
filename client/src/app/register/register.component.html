@@ -1,0 +1,64 @@
+        
+        <section>
+            <div class="container" style="padding-top: 5rem">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 mx-auto">
+                        <!-- <div class="card border-none"> -->
+                            <div class="card-body">
+                                <div class="mt-2 text-center">
+                                    <h2>Create your Account</h2>
+                                </div>
+                                <!-- <p class="mt-4 text-white lead text-center">
+                                    Sign up to get started with Authority
+                                </p> -->
+                                <ngx-loading [show]="loading" [config]="{backdropBackgroundColour: 'rgba(0,0,0,0.0)',
+                    primaryColour: 'blue', secondaryColour: 'red', tertiaryColour: 'yellow'}">
+
+        </ngx-loading>
+                                <div  [ngClass]="getColor()" id="notice">
+                                    {{getMessage()}} <span *ngIf='isSuccess()'><a routerLink="/login">Login</a></span>
+                                </div>
+                                <div class="mt-4">
+                                    <form id="form-register" (ngSubmit)="f.form.valid && submit()"  #f="ngForm" novalidate>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" required placeholder="Enter email address">
+                                            <div class="invalid-feedback">Username is required</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control inputpass" id="password" name="Password" [(ngModel)]="user.password" #password="ngModel" required
+                             placeholder="Enter your password " minlength="4" maxlength="16" >
+                             <div class="invalid-feedback">Password is required</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control inputpass" id="conf_password" name="conf_password" required title="Please enter your password"
+                                            placeholder="Confirm your password">
+                                            <div class="invalid-feedback">Confirm password is required</div>
+                                            <div id="confirmMessage"></div>
+                                            <!-- <span id="confirmMessage" class="confirmMessage"></span> -->
+                                        </div>
+                                        <button type="submit" class="btn btn-primary " id="submit">Create Account</button>
+                                    </form>
+                                    <!-- <div class="clearfix"></div>
+                                    <p class="content-divider center mt-4"><span>or</span></p> -->
+                                </div>
+                                <!-- <p class="mt-4 social-login text-center">
+                                    <a href="#" class="btn btn-twitter"><em class="ion-social-twitter"></em></a>
+                                    <a href="#" class="btn btn-facebook"><em class="ion-social-facebook"></em></a>
+                                    <a href="#" class="btn btn-linkedin"><em class="ion-social-linkedin"></em></a>
+                                    <a href="#" class="btn btn-google"><em class="ion-social-googleplus"></em></a>
+                                    <a href="#" class="btn btn-github"><em class="ion-social-github"></em></a>
+                                </p> -->
+                                <div class="clearfix"></div>
+                            <p class="content-divider center mt-4">
+                                <!-- <span>or</span> -->
+                            </p>
+                                <p class="text-center">
+                                    Already have an account? <a routerLink="/login">Login Now</a>
+                                </p>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                   
+                </div>
+            </div>
+        </section>

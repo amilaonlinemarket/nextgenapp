@@ -1,0 +1,75 @@
+<section>
+    <div class="container" style="padding-top: 5rem">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 mx-auto">
+            <section id="contact" >
+                  <div class="section-header">
+                    <h3>Contact Us</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                  </div>
+          
+                  <div class="row contact-info">
+          
+                    <div class="col-md-4">
+                      <div class="contact-address">
+                        <i class="ion-ios-location-outline"></i>
+                        <h3>Address</h3>
+                        <address>A108 Adam Street, NY 535022, USA</address>
+                      </div>
+                    </div>
+          
+                    <div class="col-md-4">
+                      <div class="contact-phone">
+                        <i class="ion-ios-telephone-outline"></i>
+                        <h3>Phone Number</h3>
+                        <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                      </div>
+                    </div>
+          
+                    <div class="col-md-4">
+                      <div class="contact-email">
+                        <i class="ion-ios-email-outline"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@example.com">info@example.com</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form">
+                      <span *ngIf='getResponse()==1'>
+                          <div id="sendmessage" class="show">Your message has been sent. Thank you!</div>
+                      </span>
+                      <span *ngIf='getResponse()==-1'>
+                          <div id="errormessage" class="show"> Try again !!!</div>
+                      </span>
+
+                          <form id="contact" (ngSubmit)="f.form.valid && submitContactUs()"  #f="ngForm"  novalidate class="contactForm">
+                              <!-- <form id="form-register" (ngSubmit)="f.form.valid && submit()"  #f="ngForm" novalidate> -->
+                                  
+                              <div class="form-row">
+                                  <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name="name" id="name" [(ngModel)]="contactUs.name" #name="ngModel" placeholder="Your Name" data-rule="minlen:4" 
+                                    required>
+                                    <div class="invalid-feedback">Username is required</div>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" name="email" [(ngModel)]="contactUs.email" #email="ngModel" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" >
+                                    <div class="invalid-feedback">Username is required</div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" id="subject" [(ngModel)]="contactUs.subject" #subject="ngModel" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                    <div class="invalid-feedback">Username is required</div>
+                                  </div>
+                                  <div class="form-group">
+                                    <textarea class="form-control" name="message" [(ngModel)]="contactUs.message" #message="ngModel" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                    <div class="invalid-feedback">Username is required</div>
+                                  </div>
+                                  <div class="text-center"><button id="submit" type="submit">Send Message</button></div>
+                        </form>
+                  </div>
+          
+              </section>
+          </div>
+          </div>
+          </div>
+          </section>

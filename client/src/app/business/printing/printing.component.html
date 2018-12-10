@@ -1,0 +1,128 @@
+<div id="products" class="row view-group sort" >
+        <div class="col-lg-12 my-3 not-found" *ngIf="jsonParse(dataSet).length == 0">
+                Record not found
+          </div>
+          <div class="item col-xs-4 col-lg-4" *ngFor="let data of jsonParse(dataSet)">
+              <div [ngClass]="data.displayIndex !=10000 ? 'thumbnail cardTop':'thumbnail card'">
+              <div class="img-event">
+                  <img class="group list-group-image img-fluid" src={{data.img.thumb}} alt="" >
+                  <!-- <div class="text-block" >{{data.price.value | currency:"LKR": "symbol-narrow"}}</div> -->
+              </div>
+              <div class="caption card-body">
+                  <div class="row">
+                          <button type="button" data-toggle="tooltip" title={{data.name}} class="asLink" data-toggle="modal" [attr.data-target]="'#' + data._id">
+                                  {{data.name.length > 30 ? ((data.name|slice:0:30)+'...'):(data.name)}}
+                                </button>
+                          <ul class="list-unstyled card-feature-list">
+                              <li *ngFor="let point of filterObject(data.keyPoints)" >
+                                      {{point.words.length > 25 ? ((point.words|slice:0:25)+'...'):(point.words)}}
+                                      </li> 
+                          </ul>
+                          <div class="card-detail">
+                                  <h2 class="card-value">{{data.owner.name.length > 25 ? ((data.owner.name|slice:0:25)+'...'):(data.owner.name)}}</h2>
+                                  <span class="per-title">{{data.owner.title}}</span>
+                                  <div class="card-value">
+                                          <span  *ngFor="let loc of data.location; let isLast=last" >
+                                              <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                              <span *ngIf="jsonParse(display).location=='city'">{{loc.city}}{{isLast ? '' : ', '}}</span>
+                                              <span *ngIf="jsonParse(display).location=='devision'">{{loc.devision}}{{isLast ? '' : ', '}}</span>
+                                           </span>
+                                       </div>
+                                       <span class="topright"> {{ data.datePosted|date :  "MMM d, y"}}</span> 
+                          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="modal fade" id="{{data._id}}">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title"> {{ data.name }}</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                          {{ data.description }} 
+                          <div class="container"> 
+                                  <div class="info-sec">
+                                          <div class="container-fliud">
+                                              <div class="wrapper row">
+                                                  <div class="preview col-md-6">
+                                                      
+                                                      <div class="preview-pic tab-content">
+                                                        <div class="tab-pane active" id="1{{data._id}}"><img src="{{data.img.thumb}}" /></div>
+                                                        <div class="tab-pane" id="2{{data._id}}"><img src="{{data.img.otherImages[0]}}" /></div>
+                                                        <div class="tab-pane" id="3{{data._id}}"><img src="{{data.img.otherImages[1]}}" /></div>
+                                                        <div class="tab-pane" id="4{{data._id}}"><img src="{{data.img.otherImages[2]}}" /></div>
+                                                        <div class="tab-pane" id="5{{data._id}}"><img src="{{data.img.otherImages[3]}}" /></div>
+                                                      </div>
+                                                      <ul class="preview-thumbnail nav nav-tabs">
+                                                        <li class="active"><a [attr.data-target]="'#1' + data._id" data-toggle="tab"><img src="{{data.img.thumb}}" /></a></li>
+                                                        <li><a [attr.data-target]="'#2' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[0]}}" /></a></li>
+                                                        <li><a [attr.data-target]="'#3' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[1]}}" /></a></li>
+                                                        <li><a [attr.data-target]="'#4' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[2]}}" /></a></li>
+                                                        <li><a [attr.data-target]="'#5' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[3]}}" /></a></li>
+                                                      </ul>
+                                                      
+                                                  </div>
+                                                  <div class="details col-md-6">
+                                                      <div class="card-detail">
+                                                              <h2 class="card-value">{{data.owner.name}}</h2>
+                                                              <span class="per-title">{{data.owner.title}}</span>
+                                                              <h2 class="card-value"><i class="fa fa-phone" style="font-size:20px"></i>
+                                                                 {{data.owner.contactNo.primary}}</h2>
+                                                              <span *ngFor="let contact of data.owner.contactNo.secondary">
+                                                                  <h2 class="card-value"><i class="fa fa-phone" style="font-size:20px"></i>
+                                                                    {{contact}}</h2>
+                                                              </span>
+                                                              
+                                                              <h2  class="card-value">{{data.owner.email}}</h2>
+                                                      </div>
+                                                      <!-- <div class="rating">
+                                                          <div class="stars">
+                                                              <span class="fa fa-star checked"></span>
+                                                              <span class="fa fa-star checked"></span>
+                                                              <span class="fa fa-star checked"></span>
+                                                              <span class="fa fa-star"></span>
+                                                              <span class="fa fa-star"></span>
+                                                          </div>
+                                                          <span class="review-no">41 reviews</span>
+                                                      </div> -->
+                                                          <ul class="list-unstyled card-feature-list ">
+                                                              <li *ngFor="let point of data.keyPoints">
+                                                                  <span [ngClass]="point.isHighlight==true ? 'highlight-text':''">{{point.words}}</span></li>
+                                                          </ul>
+                                                      <!-- <h4 class="price" *ngIf="data.price !=undefined">Fee: <span>Rs {{data.price.value}}/{{data.price.logic}}</span></h4> -->
+                                                      <p class="vote"><span  *ngFor="let loc of data.location; let isLast=last" >
+                                                              <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                              {{loc.streetAddres}},{{loc.devision}}{{isLast ? '' : ', '}}
+                                                           </span></p>
+                                                      <!-- <h5 class="sizes">sizes:
+                                                          <span class="size" data-toggle="tooltip" title="small">s</span>
+                                                          <span class="size" data-toggle="tooltip" title="medium">m</span>
+                                                          <span class="size" data-toggle="tooltip" title="large">l</span>
+                                                          <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+                                                      </h5>
+                                                      <h5 class="colors">colors:
+                                                          <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                                                          <span class="color green"></span>
+                                                          <span class="color blue"></span>
+                                                      </h5> -->
+                                                      <!-- <div class="action">
+                                                          <button class="add-to-cart btn btn-default" type="button">add to cart</button>
+                                                          <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                                                      </div> -->
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          </div>
+                              </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div> 
+      </div>

@@ -1,0 +1,90 @@
+<style>
+.brand-logo{
+    width: 120px;
+}
+
+</style>
+<section >
+    <div class="container" style="padding-top: 8rem">
+        <div class="row">
+            <div class="col-md-6 col-sm-8 mx-auto">
+                    <div class="card-body">
+                        <div class="mt-2">
+                            <img src="../../assets/img/male.jpg" alt="Male" class="brand-logo mx-auto d-block img-fluid rounded-circle"/>
+                        </div>
+                        <p class="mt-4 text-white lead text-center">
+                            Sign in to access your Authority account
+                        </p>
+                        <div class="mt-4">
+                                <div class="ps-error">{{message}}</div>
+                                <form id="loginForm" (ngSubmit)="f.form.valid && submit()"  #f="ngForm" novalidate>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="credentials.email"  #email="ngModel" required  placeholder="Enter email address">
+                                    <div class="invalid-feedback">Username is required</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="credentials.password" #password="ngModel" required placeholder="Enter password">
+                                    <div class="invalid-feedback">Password is required</div>
+                                </div>
+                                <!-- <div id="loginErrorMsg" class="invalid-feedback">Wrong username og password</div> -->
+                                <!-- <label class="custom-control custom-checkbox mt-2">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description text-white">Keep me logged in</span>
+                                </label> -->
+                                <button type="submit" class="btn btn-primary" id="signUp">Sign in</button>
+                                <a  href="" data-toggle="modal" data-target="#myModal">Forgotten password?</a>
+                            </form>
+                            
+                            <div class="clearfix"></div>
+                            <p class="content-divider center mt-4">
+                                <!-- <span>or</span> -->
+                            </p>
+                        </div>
+                        <!-- <p class="mt-4 social-login text-center">
+                            <a href="#" class="btn btn-twitter"><em class="ion-social-twitter"></em></a>
+                            <a href="#" class="btn btn-facebook"><em class="ion-social-facebook"></em></a>
+                            <a href="#" class="btn btn-linkedin"><em class="ion-social-linkedin"></em></a>
+                            <a href="#" class="btn btn-google"><em class="ion-social-googleplus"></em></a>
+                            <a href="#" class="btn btn-github"><em class="ion-social-github"></em></a>
+                        </p> -->
+                        <p class="text-center">
+                            Don't have an account yet? <a routerLink="/register" >Sign Up Now</a>
+                        </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <div class="modal-content">
+                <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Let's find your account</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                  <!-- <p>Some text in the modal.</p> -->
+                  <!-- <div class="row"> -->
+                        <!-- <h4 class="modal-title">Let's find your account</h4> -->
+                        <div class="modal-body">
+                                <div id="msg"></div>
+                                    <form (ngSubmit)="f.form.valid && resetPassword()" #f="ngForm" novalidate>
+                                        <div class="form-group">
+                                          <label for="email">Email address</label>
+                                          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="credentials.email"  #email="ngModel" required  aria-describedby="emailHelp" placeholder="Enter email">
+                                          <small id="emailHelp" class="form-text text-muted">We'll send email to recover youe password</small>
+                                        </div>
+                                        <button type="submit" id ="resetSubmit" class="btn btn-primary">Send</button>
+                                      </form>
+                              </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+              
+            </div>
+          </div> 
+</section>
