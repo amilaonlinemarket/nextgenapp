@@ -38,8 +38,7 @@
         "js/isotope/isotope.pkgd.min.js",
         "js/lightbox/js/lightbox.min.js",
         "js/touchSwipe/jquery.touchSwipe.min.js",
-        "js/main.js",
-        "../node_modules/bootstrap-treeview/dist/bootstrap-treeview.min.js"
+        "js/main.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
