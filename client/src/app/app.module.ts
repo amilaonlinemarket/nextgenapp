@@ -21,7 +21,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { VehicleComponent } from './business/vehicle/vehicle.component';
 import { PrintingComponent } from './business/printing/printing.component';
 import {HouseComponent } from './business/house/house.component';
-import { NgbdDropdownBasicComponent } from './ngbd-dropdown-basic/ngbd-dropdown-basic.component';
 import { MigrationComponent } from './personal-plans/migration/migration.component';
 import { ElectricityComponent } from './personal-plans/electricity/electricity.component';
 import { PricingComponent } from './pricing/pricing.component';
