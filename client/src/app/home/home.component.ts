@@ -31,10 +31,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+    $('#portfolioId').hide();
+
      this.businessList =[{
-      image:"./assets/img/portfolio/edumain.jpg",
+      image:"./assets/img/portfolio/OL.jpg",
       routerLink:"/business/hub",
-      // routerLink:"/edu/classes",
       category:'education',
       sub:'o/l',
       label:"O/L classes",
@@ -42,8 +43,7 @@ export class HomeComponent implements OnInit {
       viewTemplate:'education'
     },
     {
-    image:"./assets/img/portfolio/app1.jpg",
-      // routerLink:"/edu/classes",
+    image:"./assets/img/portfolio/AL.jpg",
       routerLink:"/business/hub",
       category:'education',
       sub:'a/l',
@@ -52,8 +52,7 @@ export class HomeComponent implements OnInit {
       viewTemplate:'education'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
-      // routerLink:"/edu/classes",
+    image:"./assets/img/portfolio/IT.jpg",
       routerLink:"/business/hub",
       category:'education',
       sub:'it',
@@ -62,7 +61,7 @@ export class HomeComponent implements OnInit {
       viewTemplate:'education'
   },
   {
-  image:"./assets/img/portfolio/app1.jpg",
+  image:"./assets/img/portfolio/Dancing.jpg",
       // routerLink:"/edu/classes",
       routerLink:"/business/hub",
       category:'education',
@@ -70,6 +69,42 @@ export class HomeComponent implements OnInit {
       label:"Dancing",
       filter:'filter-edu',
       viewTemplate:'education'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+        routerLink:"/business/hub",
+        category:'education',
+        sub:'primary',
+        label:"Primary Education",
+        filter:'filter-edu',
+        viewTemplate:'education'
+    },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'education',
+    sub:'english',
+    label:"English Claases",
+    filter:'filter-edu',
+    viewTemplate:'education'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'education',
+    sub:'beauty',
+    label:"Beauty Culture Classes",
+    filter:'filter-edu',
+    viewTemplate:'education'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+      routerLink:"/business/hub",
+      category:'agri',
+      sub:'fv',
+      label:"Fruit & Veg Suppliers",
+      filter:'filter-agr',
+      viewTemplate:'common'
   },
   {
     image:"./assets/img/portfolio/app1.jpg",
@@ -87,7 +122,7 @@ export class HomeComponent implements OnInit {
     routerLink:"/business/hub",
     category:'property',
     sub:'room',
-    label:"Rooms",
+    label:"Rooms & Annexes",
     filter:'filter-pro',
     viewTemplate:'common'
   },
@@ -97,7 +132,17 @@ export class HomeComponent implements OnInit {
     routerLink:"/business/hub",
     category:'property',
     sub:'building',
-    label:"Building",
+    label:"Buildings",
+    filter:'filter-pro',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/house",
+    routerLink:"/business/hub",
+    category:'property',
+    sub:'land',
+    label:"Land",
     filter:'filter-pro',
     viewTemplate:'common'
   },
@@ -106,8 +151,8 @@ export class HomeComponent implements OnInit {
     // routerLink:"/business/construction",
     routerLink:"/business/hub",
     category:'construction',
-    sub:'building',
-    label:"Building construction",
+    sub:'buildCon',
+    label:"Building contractors",
     filter:'filter-con',
     viewTemplate:'common'
   },
@@ -127,7 +172,97 @@ export class HomeComponent implements OnInit {
     routerLink:"/business/hub",
     category:'construction',
     sub:'hardware',
-    label:"Hardware suppilers",
+    label:"Hardware & Raw Mat..",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'archi',
+    label:"Architects",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'engCon',
+    label:"Enginner & Consultants",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'eleWir',
+    label:"Electrical Wiring",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'mason',
+    label:"Mason",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'plumber',
+    label:"Plumbers",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'wrw',
+    label:"Wood & Roof Workers",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'paint',
+    label:"Painters",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'timber',
+    label:"Timber suppliers",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'concrete',
+    label:"Concrete workers",
+    filter:'filter-con',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'construction',
+    sub:'rent',
+    label:"Rent Constrction tools",
     filter:'filter-con',
     viewTemplate:'common'
   },
@@ -146,8 +281,8 @@ export class HomeComponent implements OnInit {
     // routerLink:"/business/acco",
     routerLink:"/business/hub",
     category:'accomadation',
-    sub:'kabana',
-    label:"Kabanas",
+    sub:'resorts',
+    label:"Holiday Resorts",
     filter:'filter-aco',
     viewTemplate:'common'
   },
@@ -157,7 +292,47 @@ export class HomeComponent implements OnInit {
     routerLink:"/business/hub",
     category:'accomadation',
     sub:'gh',
-    label:"Guest House",
+    label:"Guest Houses",
+    filter:'filter-aco',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/acco",
+    routerLink:"/business/hub",
+    category:'accomadation',
+    sub:'hostels',
+    label:"Hostels",
+    filter:'filter-aco',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/acco",
+    routerLink:"/business/hub",
+    category:'accomadation',
+    sub:'hb',
+    label:"Holiday Bungalows",
+    filter:'filter-aco',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/acco",
+    routerLink:"/business/hub",
+    category:'accomadation',
+    sub:'rh',
+    label:"Rest House",
+    filter:'filter-aco',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/acco",
+    routerLink:"/business/hub",
+    category:'accomadation',
+    sub:'rooms',
+    label:"Rooms",
     filter:'filter-aco',
     viewTemplate:'common'
   },
@@ -175,20 +350,20 @@ export class HomeComponent implements OnInit {
     image:"./assets/img/portfolio/app1.jpg",
     // routerLink:"/business/transport",
     routerLink:"/business/hub",
-    category:'transport',
-    sub:'van',
-    label:"Van",
-    filter:'filter-trp',
+    category:'rent',
+    sub:'rent',
+    label:"Rent",
+    filter:'filter-reh',
     viewTemplate:'common'
   },
   {
     image:"./assets/img/portfolio/app1.jpg",
     // routerLink:"/business/transport",
     routerLink:"/business/hub",
-    category:'transport',
-    sub:'car',
-    label:"Car",
-    filter:'filter-trp',
+    category:'rent',
+    sub:'hire',
+    label:"Hire",
+    filter:'filter-reh',
     viewTemplate:'common'
   },
   {
@@ -199,16 +374,6 @@ export class HomeComponent implements OnInit {
     sub:'lorry',
     label:"Lorry",
     filter:'filter-trp',
-    viewTemplate:'common'
-  },
-  {
-    image:"./assets/img/portfolio/app1.jpg",
-    // routerLink:"/business/serSation",
-    routerLink:"/business/hub",
-    category:'services',
-    sub:'motor',
-    label:"Service Sation",
-    filter:'filter-ses',
     viewTemplate:'common'
   },
   {
@@ -253,6 +418,66 @@ export class HomeComponent implements OnInit {
   },
   {
     image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/health",
+    routerLink:"/business/hub",
+    category:'wed',
+    sub:'bridal',
+    label:"Bridal Dressing",
+    filter:'filter-wed',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/health",
+    routerLink:"/business/hub",
+    category:'wed',
+    sub:'flower',
+    label:"Flower Decos",
+    filter:'filter-wed',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/health",
+    routerLink:"/business/hub",
+    category:'wed',
+    sub:'photography',
+    label:"Protography",
+    filter:'filter-wed',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/health",
+    routerLink:"/business/hub",
+    category:'wed',
+    sub:'groomswear',
+    label:"Groomswear",
+    filter:'filter-wed',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/health",
+    routerLink:"/business/hub",
+    category:'wed',
+    sub:'cake',
+    label:"Cake creators",
+    filter:'filter-wed',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/health",
+    routerLink:"/business/hub",
+    category:'wed',
+    sub:'trad',
+    label:"Traditional Dancers",
+    filter:'filter-wed',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
     // routerLink:"/business/pcontrol",
     routerLink:"/business/hub",
     category:'pestcontrol',
@@ -265,27 +490,56 @@ export class HomeComponent implements OnInit {
     image:"./assets/img/portfolio/app1.jpg",
     // routerLink:"/business/vehicles",
     routerLink:"/business/hub",
-    category:'vehicles',
-    sub:'car',
-    label:"Cars",
-    filter:'filter-veh',
+    category:'auto',
+    sub:'vehicles',
+    label:"Vehicles",
+    filter:'filter-auto',
     viewTemplate:'common'
   },
   {
     image:"./assets/img/portfolio/app1.jpg",
     routerLink:"/business/hub",
-    category:'OTHER_VEH',
-    label:"Other Vehicles",
-    filter:'filter-veh',
+    category:'auto',
+    sub:'AutoServices',
+    label:"Automotive Services",
+    filter:'filter-auto',
     viewTemplate:'common'
   },
   {
     image:"./assets/img/portfolio/app1.jpg",
     routerLink:"/business/hub",
-    category:'vehicles',
-    sub:'s_parts',
-    label:"Spare Parts",
-    filter:'filter-veh',
+    category:'auto',
+    sub:'mechGar',
+    label:"Mechanics & Garages",
+    filter:'filter-auto',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'auto',
+    sub:'motorSco',
+    label:"Motorcycles & Scooters",
+    filter:'filter-auto',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'auto',
+    sub:'partAcc',
+    label:"Parts & Accessories",
+    filter:'filter-auto',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    // routerLink:"/business/serSation",
+    routerLink:"/business/hub",
+    category:'auto',
+    sub:'serStation',
+    label:"Service Sation",
+    filter:'filter-auto',
     viewTemplate:'common'
   },
   {
@@ -310,20 +564,102 @@ export class HomeComponent implements OnInit {
     image:"./assets/img/portfolio/app1.jpg",
     routerLink:"/business/hub",
     category:'sports',
-    sub:'equ',
-    label:"Equipment",
+    sub:'swimming',
+    label:"Swimming",
     filter:'filter-spt',
     viewTemplate:'common'
   },
   {
     image:"./assets/img/portfolio/app1.jpg",
     routerLink:"/business/hub",
-    category:'garage',
-    sub:'motor',
-    label:"Garage",
-    filter:'filter-gar',
+    category:'sports',
+    sub:'ws',
+    label:"Water Sports",
+    filter:'filter-spt',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'sports',
+    sub:'hunting',
+    label:"Hunting",
+    filter:'filter-spt',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'sports',
+    sub:'equ',
+    label:"Equipments",
+    filter:'filter-spt',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'sports',
+    sub:'gym',
+    label:"Gym & Fitness",
+    filter:'filter-spt',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'beauty',
+    sub:'saloon',
+    label:"Beauty Sallon",
+    filter:'filter-bea',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'beauty',
+    sub:'spa',
+    label:"Spa",
+    filter:'filter-bea',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'animal',
+    sub:'pets',
+    label:"Pets",
+    filter:'filter-ani',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'animal',
+    sub:'acc',
+    label:"Accessories",
+    filter:'filter-ani',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'animal',
+    sub:'petfood',
+    label:"Pet Food",
+    filter:'filter-ani',
+    viewTemplate:'common'
+  },
+  {
+    image:"./assets/img/portfolio/app1.jpg",
+    routerLink:"/business/hub",
+    category:'animal',
+    sub:'vet',
+    label:"Veterinary Services",
+    filter:'filter-ani',
     viewTemplate:'common'
   }
+
 ]
    
 }

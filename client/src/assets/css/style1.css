@@ -36,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+
 /* Back to top button */
 .back-to-top {
   position: fixed;
@@ -89,14 +90,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-inner {
   background: rgba(0, 0, 0, 0.9);
-  /* padding: 30px 0;
+   padding: 10px 0;
   height: 92px;
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   transition: all 0.5s;
-  z-index: 997; */
+  z-index: 997;
 }
 
 #header #logo {
@@ -122,7 +123,8 @@ h1, h2, h3, h4, h5, h6 {
 #header #logo h1 a, #header #logo h1 a:hover {
   color: #fff;
   padding-left: 10px;
-  border-left: 4px solid #18d26e;
+  /* border-left: 4px solid #18d26e; */
+  /* border-left: 4px solid #18d26e; */
 }
 
 #header #logo img {
@@ -360,6 +362,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   display: inline-block;
   color: #fff;
+  /* color: black; */
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 13px;
@@ -570,7 +573,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Section with background
 --------------------------------*/
 .section-bg {
-  background: #f7f7f7;
+  background: #f7f7ff;
 }
 
 /* Featured Services Section
@@ -631,7 +634,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.92);
+  /* background: rgba(255, 255, 255, 0.92); */
   z-index: 9;
 }
 
@@ -890,14 +893,17 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 15px 15px 15px 0;
   display: inline-block;
   padding: 10px 20px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 20px;
-  color: #666666;
+  /* color: #666666; */
+  color: black;
   border-radius: 4px;
-  text-transform: uppercase;
-  background: #fff;
+  /* text-transform: uppercase; */
+  background:#cde0be;
+  /* background:#18d26e; */
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
+  font-weight:500;
 }
 
 #portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
@@ -926,7 +932,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #portfolio .portfolio-item figure {
-  background: #000;
+  /* background: #000; */
+  background: #cde0be;
   overflow: hidden;
   /* height: 240px; */
   height: 147px;
@@ -1005,9 +1012,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #portfolio .portfolio-item .portfolio-info h4 {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 18px;
   padding-bottom: 0;
   
@@ -1926,9 +1933,11 @@ color: #dc3545;
 section.pricing {
   background: #9CECFB;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+  /* background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); */
+  background: -webkit-linear-gradient(to right,#13a456,#18d26e, #cde0be);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+  /* background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); */
+  background: linear-gradient(to right, #13a456,#18d26e, #cde0be);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -1975,6 +1984,24 @@ section.pricing {
   padding: 1rem;
   opacity: 0.7;
   transition: all 0.2s;
+}
+
+.center{
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  /* content:url('../assets/img/spinner.png'); */
+}
+
+.container .img{
+  text-align:center;
+}
+.container .details{
+  border-left:3px solid #ded4da;
+}
+.container .details p{
+  font-size:15px;
+  font-weight:bold;
 }
 
 /* Hover Effects on Card */

@@ -21,7 +21,6 @@ import 'rxjs/add/observable/of';
      <rent  *ngSwitchCase="'rent'"  dataSet="{{dataSet}}" display="{{display}}"></rent>
      <pestcontrol  *ngSwitchCase="'pestcontrol'"  dataSet="{{dataSet}}" display="{{display}}"></pestcontrol>
 
-     
   </div>`
 })
 export class BusinessSelectorComponent implements OnInit {

@@ -88,16 +88,15 @@
               </div>
             </div>
   
-            <div class="carousel-item">
+            <!-- <div class="carousel-item">
               <div class="carousel-background"><img src="./assets/img/intro-carousel/5.jpg" alt=""></div>
               <div class="carousel-container">
                 <div class="carousel-content">
                   <h2>Magnam aliquam quaerat</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 </div>
               </div>
-            </div>
+            </div> -->
   
           </div>
   
@@ -151,31 +150,47 @@
       <section id="portfolio"  class="section-bg" >
           <div class="container">
             <header class="section-header">
-              <h3 class="section-title">Market place</h3>
+              <h3 class="section-title">Find your Business Products or Service</h3>
             </header>
     
             <div class="row">
+                    <!-- <div class="col-sm-5">
+                      <div class="form-group">
+                        <select class="selectpicker form-control">
+                          <option>Education</option>
+                          <option>Vehicles</option>
+                          <option>Construction</option>
+                        </select>
+                      </div>
+                    </div> -->
+                   
               <div class="col-lg-12">
                 <ul id="portfolio-flters">
-                  <li data-filter="*" class="filter-active">All</li>
+                  <!-- <li data-filter="*" class="filter-active">All</li> -->
                   <li data-filter=".filter-edu">Education</li>
-                  <li data-filter=".filter-veh">Vehicles</li>
-                  <li data-filter=".filter-con">Construction</li>
                   <li data-filter=".filter-pro">Property</li>
+                  <li data-filter=".filter-auto">Autos</li>
+                  <li data-filter=".filter-con">Building & Construction</li>
                   <li data-filter=".filter-aco">Accomadation</li>
+                  <li data-filter=".filter-agr">Agriculture</li>
                   <li data-filter=".filter-spt">Sports</li>
                   <li data-filter=".filter-prt">Printing</li>
-                  <li data-filter=".filter-trp">Transport</li>
-                  <li data-filter=".filter-ses">Service station</li>
-                  <li data-filter=".filter-trp">Renting</li>
+                  <!-- <li data-filter=".filter-trp">Transport</li> -->
+                  <!-- <li data-filter=".filter-ses">Service station</li> -->
+                  <li data-filter=".filter-ani">Animals</li>
                   <li data-filter=".filter-hth">Health</li>
+                  <li data-filter=".filter-wed">Wedding & Entertainment</li>
+                  <li data-filter=".filter-bea">Beauty & spa</li>
                   <li data-filter=".filter-pct">Pest Control</li>
 
                 </ul>
               </div>
             </div>
-    
-            <div class="row portfolio-container">
+            <!--Dropdown primary-->
+          
+  <!--/Dropdown primary-->
+            <div id="pfLoading"></div>
+            <div id="portfolioId" class="row portfolio-container">
               <!-- <span *ngFor ="let item of businessList"> -->
                   <div class="col-lg-3 col-md-6 portfolio-item wow fadeInUp" [ngClass]="item.filter" *ngFor ="let item of businessList" >
                      
@@ -198,19 +213,76 @@
                       </div>
                     </div>
               <!-- </span> -->
-              
-
-                
-    
             </div>
     
           </div>
         </section><!-- #portfolio -->
+        <!--==========================
+        Services Section
+      ============================-->
+      <section id="services" >
+          <div class="container">
+    
+            <header class="section-header wow fadeInUp">
+              <h3>Services</h3>
+              <p>Our step-by-step guides together with a newer and good techniques, information and tips will give you a better knowledge to utilize your capability to success Your archivements</p>
+            </header>
+    
+            <div class="row">
+              <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+                <h4 class="title">
+                    <!-- <a [routerLink]="['/personal-plans/construction']"> -->
+                      <a href="personal-plans/construction">
+                      Building Construction</a>
+                      </h4>
+                <p class="description">We are providing enomourse ideas regarding construction. Before you build a house,you must go through these this and have better 
+                  idea.</p>
+              </div>
+              <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+                <h4 class="title">
+                    <!-- <a [routerLink]="['/personal-plans/migration']"> -->
+                      <a href="personal-plans/migration">
+                      Migration overseas</a>
+                      </h4>
+                <p class="description">Before migration to overseas you must read this. Plan your journey before you go</p>
+              </div>
+              <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                <div class="icon"><i class="ion-ios-paper-outline"></i></div>
+                <h4 class="title">
+                    <!-- <a [routerLink]="['/personal-plans/electricity']"> -->
+                      <a href="personal-plans/electricity">
+                      Better use of Electricity</a>
+                      </h4>
+                <p class="description">When you live in Sri lanka, what we need to know about electricity. Best way to optimise your monthly bill</p>
+              </div>
+  
+              <!-- <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                <h4 class="title"><a href="">Magni Dolores</a></h4>
+                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              </div>
+              <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+                <h4 class="title"><a href="">Nemo Enim</a></h4>
+                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+              </div>
+              <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                <div class="icon"><i class="ion-ios-people-outline"></i></div>
+                <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              </div> -->
+    
+            </div>
+    
+          </div>
+        </section><!-- #services -->
 
       <!--==========================
         About Us Section
       ============================-->
-      <section id="about">
+      <section id="about" class="section-bg">
         <div class="container">
   
           <header class="section-header">
@@ -269,64 +341,7 @@
   
         </div>
       </section><!-- #about -->
-      <!--==========================
-        Services Section
-      ============================-->
-      <section id="services" class="section-bg">
-        <div class="container">
-  
-          <header class="section-header wow fadeInUp">
-            <h3>Services</h3>
-            <p>Our step-by-step guides together with a large base of good techniques, information and tips will give you the knowledge and skills to maximise your online visibility and achieve business success.</p>
-          </header>
-  
-          <div class="row">
-            <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-              <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-              <h4 class="title">
-                  <a [routerLink]="['/personal-plans/construction']">
-                    Building Construction</a>
-                    </h4>
-              <p class="description">We are providing enomourse ideas regarding construction. Before you build a house,you must go through these this and have better 
-                idea.</p>
-            </div>
-            <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-              <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-              <h4 class="title">
-                  <a [routerLink]="['/personal-plans/migration']">
-                    Migration overseas</a>
-                    </h4>
-              <p class="description">Before migration to overseas you must read this. Plan your journey before you go</p>
-            </div>
-            <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-              <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-              <h4 class="title">
-                  <a [routerLink]="['/personal-plans/electricity']">
-                    Better use of Electricity</a>
-                    </h4>
-              <p class="description">When you live in Sri lanka, what we need to know about electricity. Best way to optimise your monthly bill</p>
-            </div>
-
-            <!-- <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-              <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-            <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-              <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-            <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-              <div class="icon"><i class="ion-ios-people-outline"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div> -->
-  
-          </div>
-  
-        </div>
-      </section><!-- #services -->
+      
        <!--==========================
         Call To Action Section
       ============================-->
@@ -502,11 +517,10 @@
                             <li><span class="fa-li"><i class="fa fa-check"></i></span>Connecting with Social medias</li>
                             <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment front market place image</li> -->
                             <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment in top of the page</li>
-                            <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment in main top banner</li>
                             <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Free Subdomain</li> -->
                             <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li> -->
                           </ul>
-                              <a class="btn btn-block btn-primary text-uppercase" [routerLink]="['/join-with-us/pricing']"
+                              <a class="btn btn-block btn-success text-uppercase" [routerLink]="['/join-with-us/pricing']"
                               [queryParams]="{package:'basic'}"
                               queryParamsHandling="merge">
                               Subscribe</a>
@@ -529,12 +543,11 @@
                               <!-- <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment front market place image</li> -->
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment in top of the page</li>
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment front market place image</li> -->
-                              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment in main top banner</li>
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Free Subdomain</li> -->
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li> -->
                           </ul>
                           <!-- <a href="#" class="btn btn-block btn-primary text-uppercase">Select</a> -->
-                              <a class="btn btn-block btn-primary text-uppercase" [routerLink]="['/join-with-us/pricing']"
+                              <a class="btn btn-block btn-success text-uppercase" [routerLink]="['/join-with-us/pricing']"
                               [queryParams]="{package:'plus'}"
                               queryParamsHandling="merge">
                               Subscribe</a>
@@ -554,12 +567,11 @@
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>Connecting with Social medias</li>
                               <!-- <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment front market place image </li> -->
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment in top of the page</li>
-                              <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment in main top banner</li>
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Free Subdomain</li> -->
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li> -->
                           </ul>
                           <!-- <a href="#" class="btn btn-block btn-primary text-uppercase">Select</a> -->
-                              <a class="btn btn-block btn-primary text-uppercase" [routerLink]="['/join-with-us/pricing']"
+                              <a class="btn btn-block btn-success text-uppercase" [routerLink]="['/join-with-us/pricing']"
                               [queryParams]="{package:'pro'}"
                               queryParamsHandling="merge">
                               Subscribe</a>
@@ -668,7 +680,7 @@
   
           <div class="section-header">
             <h3>Contact Us</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            <p> please try to get in touch with us using the form below and we will get back to your message as soon as possible.</p>
           </div>
   
           <div class="row contact-info">
@@ -677,7 +689,7 @@
               <div class="contact-address">
                 <i class="ion-ios-location-outline"></i>
                 <h3>Address</h3>
-                <address>A108 Adam Street, NY 535022, USA</address>
+                <address>No 183/2, Thotupola road,Amandoluwa,Seeduwa.   Sri Lanka</address>
               </div>
             </div>
   
@@ -685,7 +697,7 @@
               <div class="contact-phone">
                 <i class="ion-ios-telephone-outline"></i>
                 <h3>Phone Number</h3>
-                <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                <p>+94 762199100</p>
               </div>
             </div>
   
@@ -693,7 +705,7 @@
               <div class="contact-email">
                 <i class="ion-ios-email-outline"></i>
                 <h3>Email</h3>
-                <p><a href="mailto:info@example.com">info@example.com</a></p>
+                <p>info@example.com</p>
               </div>
             </div>
   

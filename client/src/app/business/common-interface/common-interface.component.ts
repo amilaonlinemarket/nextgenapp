@@ -47,11 +47,14 @@ export class CommonInterfaceComponent implements OnInit {
       $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
     });
     //$('#list').click(function (event) { event.preventDefault(); $('#products .item').removeClass('grid-group-item'); $('#products .item').addClass('list-group-item'); });
-    $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
+    $('#grid').click(function (event) { 
+      event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); 
+    });
 
     this.cities = this.utilityService.getCities();
 
     this.utilityService.findQueryParams(this.route.queryParams).subscribe((params) => {
+      console.log('Request params :%s',JSON.stringify(params));
       this.restclientService.request('get', "business", null, `root=${params.category}&sub=${params.sub}`).subscribe((data) => {
         this.metaJSON.location = "city";
         this.display = JSON.stringify(this.metaJSON);
@@ -61,7 +64,6 @@ export class CommonInterfaceComponent implements OnInit {
         console.log('loaded data :%s',this.dataSet);
         this.template = params.viewTemplate;
         // this.template = params.category;
-        console.log('Render template :%s',this.template)
       }, (err) => {
         this.loading = false;
         this.error = true;

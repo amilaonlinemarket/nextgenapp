@@ -147,17 +147,21 @@ jQuery(document).ready(function( $ ) {
   });
 
   $('#portfolio-flters li').on( 'click', function() {
-    
+    $('#pfLoading').html("<div class='col-lg-12 center'><img src='../assets/img/preloader.gif'/></div>")
+    $('#portfolioId').show();
     $("#portfolio-flters li").removeClass('filter-active');
     $(this).addClass('filter-active');
-
     portfolioIsotope.isotope({ filter: $(this).data('filter') });
     function explode(){
       var y = $(window).scrollTop();  //your current y position on the page
-    
     $(window).scrollTop(y+5);
+    };
+    function loaderTimeout(){
+      $('#pfLoading').html('');
     }
+   
     setTimeout(explode, 1000);
+    setTimeout(loaderTimeout,400);
   });
 
   // Clients carousel (uses the Owl Carousel library)
