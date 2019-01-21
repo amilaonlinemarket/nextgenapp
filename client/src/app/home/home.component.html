@@ -197,7 +197,7 @@
                       <div class="portfolio-wrap" style="top: 200px">
                         <figure>
                           <img src="{{item.image}}" class="img-fluid" alt="">
-                          <a href="item.image" data-lightbox="portfolio" data-title="Garage 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                          <a href="{{item.image}}" data-lightbox="portfolio" data-title="{{item.label}}" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                           <a [routerLink]="[item.routerLink]"
                           [queryParams]="{category:item.category,sub:item.sub,viewTemplate:item.viewTemplate}"
                           queryParamsHandling="merge" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
@@ -509,7 +509,7 @@
                       <div class="card mb-5 mb-lg-0">
                         <div class="card-body">
                           <h5 class="card-title text-muted text-uppercase text-center">Basic</h5>
-                          <h6 class="card-price text-center">Rs 100<span class="period">/month</span></h6>
+                          <h6 class="card-price text-center">Rs 75<span class="period">/month</span></h6>
                           <hr>
                           <ul class="fa-ul">
                             <li><span class="fa-li"><i class="fa fa-check"></i></span>One Advertisment in market place</li>
@@ -517,6 +517,7 @@
                             <li><span class="fa-li"><i class="fa fa-check"></i></span>Connecting with Social medias</li>
                             <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment front market place image</li> -->
                             <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment in top of the page</li>
+                            <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment front Banner</li>
                             <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Free Subdomain</li> -->
                             <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li> -->
                           </ul>
@@ -534,7 +535,7 @@
                         <div class="card-body">
                           <h5 class="card-title text-muted text-uppercase text-center">Plus</h5>
                           <h6 class="card-price text-center">
-                            Rs 150<span class="period">/month</span></h6>
+                            Rs 100<span class="period">/month</span></h6>
                           <hr>
                           <ul class="fa-ul">
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>One Advertisment in market place</li>
@@ -542,7 +543,7 @@
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>Connecting with Social medias</li>
                               <!-- <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment front market place image</li> -->
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment in top of the page</li>
-                              <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment front market place image</li> -->
+                              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Display your Advertisment front Banner</li>
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Free Subdomain</li> -->
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li> -->
                           </ul>
@@ -559,7 +560,7 @@
                       <div class="card">
                         <div class="card-body">
                           <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
-                          <h6 class="card-price text-center">Rs 250<span class="period">/month</span></h6>
+                          <h6 class="card-price text-center">Rs 150<span class="period">/month</span></h6>
                           <hr>
                           <ul class="fa-ul">
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>One Advertisment in market place</li>
@@ -567,6 +568,7 @@
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>Connecting with Social medias</li>
                               <!-- <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment front market place image </li> -->
                               <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment in top of the page</li>
+                              <li><span class="fa-li"><i class="fa fa-check"></i></span>Display your Advertisment front Banner</li>
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Free Subdomain</li> -->
                               <!-- <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li> -->
                           </ul>

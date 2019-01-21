@@ -71,7 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  padding: 30px 0;
+  /* padding: 30px 0; */
+  padding: 10px 0;
   height: 92px;
   position: fixed;
   left: 0;
@@ -83,14 +84,16 @@ h1, h2, h3, h4, h5, h6 {
 
 #header.header-scrolled {
   background: rgba(0, 0, 0, 0.9);
-  padding: 20px 0;
-  height: 72px;
+  /* padding: 20px 0;
+  height: 72px; */
+  padding: 10px 0;
+  height: 82px;
   transition: all 0.5s;
 }
 
 .header-inner {
   background: rgba(0, 0, 0, 0.9);
-   padding: 10px 0;
+   padding: 30px 0;
   height: 92px;
   position: fixed;
   left: 0;
@@ -1619,6 +1622,11 @@ body {
 }
 img {
   max-width: 100%; }
+
+.img-logo {
+  max-width: 80%;
+  height: auto;
+}
 
 .preview {
   display: -webkit-box;

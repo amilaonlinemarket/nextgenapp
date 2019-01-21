@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('-----------------------------home-------------------------------')
 
     $('#portfolioId').hide();
 
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit {
       viewTemplate:'education'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/priEdu.jpg",
         routerLink:"/business/hub",
         category:'education',
         sub:'primary',
@@ -80,16 +81,16 @@ export class HomeComponent implements OnInit {
         viewTemplate:'education'
     },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/englishEdu.jpg",
     routerLink:"/business/hub",
     category:'education',
     sub:'english',
-    label:"English Claases",
+    label:"English Classes",
     filter:'filter-edu',
     viewTemplate:'education'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/beauty_culture.jpg",
     routerLink:"/business/hub",
     category:'education',
     sub:'beauty',
@@ -98,7 +99,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'education'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/fruit_vegi.jpg",
       routerLink:"/business/hub",
       category:'agri',
       sub:'fv',
@@ -107,7 +108,7 @@ export class HomeComponent implements OnInit {
       viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/house.jpg",
     // routerLink:"/business/house",
     routerLink:"/business/hub",
     category:'property',
@@ -117,7 +118,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/annex.jpg",
     // routerLink:"/business/house",
     routerLink:"/business/hub",
     category:'property',
@@ -127,7 +128,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/building.jpg",
     // routerLink:"/business/house",
     routerLink:"/business/hub",
     category:'property',
@@ -137,7 +138,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/land.jpg",
     // routerLink:"/business/house",
     routerLink:"/business/hub",
     category:'property',
@@ -147,7 +148,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/building_constructor.jpg",
     // routerLink:"/business/construction",
     routerLink:"/business/hub",
     category:'construction',
@@ -157,7 +158,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/soil_suppliers.jpg",
     // routerLink:"/business/construction",
     routerLink:"/business/hub",
     category:'construction',
@@ -167,7 +168,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/hardware.jpg",
     // routerLink:"/business/construction",
     routerLink:"/business/hub",
     category:'construction',
@@ -177,7 +178,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/architects.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'archi',
@@ -195,7 +196,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/electrical_wiring.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'eleWir',
@@ -204,7 +205,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/mason.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'mason',
@@ -213,7 +214,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/plumbers.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'plumber',
@@ -222,7 +223,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/roof_workers.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'wrw',
@@ -231,7 +232,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/painters.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'paint',
@@ -240,7 +241,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/timber_suppliers.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'timber',
@@ -249,7 +250,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/concrete_workers.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'concrete',
@@ -258,7 +259,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/construction_tools.jpg",
     routerLink:"/business/hub",
     category:'construction',
     sub:'rent',
@@ -267,7 +268,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/hotel.jpg",
     // routerLink:"/business/acco",
     routerLink:"/business/hub",
     category:'accomadation',
@@ -277,7 +278,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/holiday_resort.jpg",
     // routerLink:"/business/acco",
     routerLink:"/business/hub",
     category:'accomadation',
@@ -287,7 +288,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/guest_house.jpg",
     // routerLink:"/business/acco",
     routerLink:"/business/hub",
     category:'accomadation',
@@ -297,7 +298,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/hostel.jpg",
     // routerLink:"/business/acco",
     routerLink:"/business/hub",
     category:'accomadation',
@@ -307,7 +308,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/holiday_bungolow.jpg",
     // routerLink:"/business/acco",
     routerLink:"/business/hub",
     category:'accomadation',
@@ -316,18 +317,18 @@ export class HomeComponent implements OnInit {
     filter:'filter-aco',
     viewTemplate:'common'
   },
+  // {
+  //   image:"./assets/img/portfolio/app1.jpg",
+  //   // routerLink:"/business/acco",
+  //   routerLink:"/business/hub",
+  //   category:'accomadation',
+  //   sub:'rh',
+  //   label:"Rest House",
+  //   filter:'filter-aco',
+  //   viewTemplate:'common'
+  // },
   {
-    image:"./assets/img/portfolio/app1.jpg",
-    // routerLink:"/business/acco",
-    routerLink:"/business/hub",
-    category:'accomadation',
-    sub:'rh',
-    label:"Rest House",
-    filter:'filter-aco',
-    viewTemplate:'common'
-  },
-  {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/room.jpg",
     // routerLink:"/business/acco",
     routerLink:"/business/hub",
     category:'accomadation',
@@ -337,7 +338,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/digital_printing.jpg",
     // routerLink:"/business/printing",
     routerLink:"/business/hub",
     category:'printing',
@@ -387,7 +388,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/private_doctors.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'health',
@@ -397,7 +398,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/lab.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'health',
@@ -407,7 +408,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/pharmacy.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'health',
@@ -417,7 +418,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/bridail_dressing.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'wed',
@@ -427,7 +428,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/flower_deco.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'wed',
@@ -437,7 +438,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/photography.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'wed',
@@ -447,7 +448,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/groom_wear.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'wed',
@@ -457,7 +458,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/cake_deco.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'wed',
@@ -467,7 +468,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/traditional_dancers.jpg",
     // routerLink:"/business/health",
     routerLink:"/business/hub",
     category:'wed',
@@ -477,7 +478,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/pest_control.jpg",
     // routerLink:"/business/pcontrol",
     routerLink:"/business/hub",
     category:'pestcontrol',
@@ -487,7 +488,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/vehicle.jpg",
     // routerLink:"/business/vehicles",
     routerLink:"/business/hub",
     category:'auto',
@@ -496,17 +497,17 @@ export class HomeComponent implements OnInit {
     filter:'filter-auto',
     viewTemplate:'common'
   },
+  // {
+  //   image:"./assets/img/portfolio/automotive.jpg",
+  //   routerLink:"/business/hub",
+  //   category:'auto',
+  //   sub:'AutoServices',
+  //   label:"Automotive Services",
+  //   filter:'filter-auto',
+  //   viewTemplate:'common'
+  // },
   {
-    image:"./assets/img/portfolio/app1.jpg",
-    routerLink:"/business/hub",
-    category:'auto',
-    sub:'AutoServices',
-    label:"Automotive Services",
-    filter:'filter-auto',
-    viewTemplate:'common'
-  },
-  {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/garage.jpg",
     routerLink:"/business/hub",
     category:'auto',
     sub:'mechGar',
@@ -515,7 +516,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/motor_sctoor.jpg",
     routerLink:"/business/hub",
     category:'auto',
     sub:'motorSco',
@@ -524,7 +525,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/spare_parts.jpg",
     routerLink:"/business/hub",
     category:'auto',
     sub:'partAcc',
@@ -533,7 +534,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/service_station.jpg",
     // routerLink:"/business/serSation",
     routerLink:"/business/hub",
     category:'auto',
@@ -543,7 +544,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/badminton.jpg",
     routerLink:"/business/hub",
     category:'sports',
     sub:'badminton',
@@ -552,7 +553,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/tennis.jpg",
     routerLink:"/business/hub",
     category:'sports',
     sub:'tennis',
@@ -561,7 +562,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/swimming.jpg",
     routerLink:"/business/hub",
     category:'sports',
     sub:'swimming',
@@ -570,7 +571,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/water_sport.jpg",
     routerLink:"/business/hub",
     category:'sports',
     sub:'ws',
@@ -578,17 +579,17 @@ export class HomeComponent implements OnInit {
     filter:'filter-spt',
     viewTemplate:'common'
   },
+  // {
+  //   image:"./assets/img/portfolio/app1.jpg",
+  //   routerLink:"/business/hub",
+  //   category:'sports',
+  //   sub:'hunting',
+  //   label:"Hunting",
+  //   filter:'filter-spt',
+  //   viewTemplate:'common'
+  // },
   {
-    image:"./assets/img/portfolio/app1.jpg",
-    routerLink:"/business/hub",
-    category:'sports',
-    sub:'hunting',
-    label:"Hunting",
-    filter:'filter-spt',
-    viewTemplate:'common'
-  },
-  {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/sports_equ.jpg",
     routerLink:"/business/hub",
     category:'sports',
     sub:'equ',
@@ -597,7 +598,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/gym.jpg",
     routerLink:"/business/hub",
     category:'sports',
     sub:'gym',
@@ -606,7 +607,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/beauty_salon.jpg",
     routerLink:"/business/hub",
     category:'beauty',
     sub:'saloon',
@@ -615,7 +616,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/spa.jpg",
     routerLink:"/business/hub",
     category:'beauty',
     sub:'spa',
@@ -624,7 +625,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/pets.jpg",
     routerLink:"/business/hub",
     category:'animal',
     sub:'pets',
@@ -633,7 +634,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/pet_accessories.jpg",
     routerLink:"/business/hub",
     category:'animal',
     sub:'acc',
@@ -642,7 +643,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/pet_food.jpg",
     routerLink:"/business/hub",
     category:'animal',
     sub:'petfood',
@@ -651,7 +652,7 @@ export class HomeComponent implements OnInit {
     viewTemplate:'common'
   },
   {
-    image:"./assets/img/portfolio/app1.jpg",
+    image:"./assets/img/portfolio/veterinary.jpg",
     routerLink:"/business/hub",
     category:'animal',
     sub:'vet',

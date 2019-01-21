@@ -21,7 +21,7 @@ export class AppComponent {
   ngOnInit(): void{
     var x=$(location).attr('href');
     //var myDiv = x.substr(x.indexOf("#") + 1);
-    console.log('Applicaion loading !!! %s',x.substr(x.indexOf("#") + 1))
+    console.log('app component :Applicaion loading !!! %s',x.substr(x.indexOf("#") + 1))
   //   console.log($("#"+myDiv))
   //   $('body, html').animate({
   //     scrollTop: $("#services").offset().top
