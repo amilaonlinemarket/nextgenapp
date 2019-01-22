@@ -57,6 +57,18 @@ const routes: Routes = [
     component: ContactUsComponent
   },
   {
+    path:'personal-plans/migration',
+    component:MigrationComponent
+  },
+  {
+    path:'personal-plans/construction',
+    component:ConstructionComponent
+  },
+  {
+    path:'personal-plans/electricity',
+    component:ElectricityComponent
+  },  
+  {
       path:'business/printing',
       component:PrintingComponent
   },
@@ -64,10 +76,6 @@ const routes: Routes = [
     path:"business/house",
     component:HouseComponent
   },
-//   {
-//     path:'edu/classes',
-//     component:ClassComponent
-// },
 {
   path:'business/vehicles',
   component:VehicleComponent
@@ -75,18 +83,6 @@ const routes: Routes = [
 {
   path:'business/sports',
   component:SportsComponent
-},
-{
-  path:'personal-plans/migration',
-  component:MigrationComponent
-},
-{
-  path:'personal-plans/construction',
-  component:ConstructionComponent
-},
-{
-  path:'personal-plans/electricity',
-  component:ElectricityComponent
 },
 {
   path:'join-with-us/pricing',
