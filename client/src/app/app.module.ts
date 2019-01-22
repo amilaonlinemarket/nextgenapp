@@ -21,8 +21,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { VehicleComponent } from './business/vehicle/vehicle.component';
 import { PrintingComponent } from './business/printing/printing.component';
 import {HouseComponent } from './business/house/house.component';
-import { MigrationComponent } from './personal-plans/migration/migration.component';
-import { ElectricityComponent } from './personal-plans/electricity/electricity.component';
+import { MigrationComponent } from './support/migration/migration.component';
+import { ElectricityComponent } from './support//electricity/electricity.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SportsComponent } from './business/sports/sports.component';
@@ -34,7 +34,7 @@ import { EducationComponent } from './business/education/education.component';
 import { TransportComponent } from './business/transport/transport.component';
 import { AccomadationComponent } from './business/accomadation/accomadation.component';
 import { RentingComponent } from './business/renting/renting.component';
-import {ConstructionComponent} from './personal-plans/construction/construction.component'
+import {ConstructionComponent} from './support/construction/construction.component'
 import {HealthComponent} from './business/health/health.component';
 import { PestcontrolComponent } from './business/pestcontrol/pestcontrol.component';
 import { CommonComponent } from './business/common/common.component';
