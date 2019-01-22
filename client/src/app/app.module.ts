@@ -57,15 +57,15 @@ const routes: Routes = [
     component: ContactUsComponent
   },
   {
-    path:'personal-plans/migration',
+    path:'suppot/migration',
     component:MigrationComponent
   },
   {
-    path:'personal-plans/construction',
+    path:'suppot/construction',
     component:ConstructionComponent
   },
   {
-    path:'personal-plans/electricity',
+    path:'suppot/electricity',
     component:ElectricityComponent
   },  
   {
