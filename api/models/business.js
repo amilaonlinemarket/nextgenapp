@@ -25,30 +25,26 @@ var busSchema = new schema({
         title:{
           type:String
         },
-        contactNo:{
-            primary:{
-                type:String
-            },
-            secondary:[]
-        },
+        contactNo:[],
         email:{
           type:String
         }
     },
-      keyPoints:[{
-        display:{
-          type: String
-        },
-        words:{
-          type: String
-        },
-        isHighlight:{
-          type:Boolean
+      keyPoints:[
+        {
+          display:{
+            type: String
+          },
+          words:{
+            type: String
+          },
+          isHighlight:{
+            type:Boolean
+          }
         }
-      }],
+      ],
       description: {
-          type: String,
-          required: true
+          type: String
         },
         location: [
           {
@@ -56,24 +52,17 @@ var busSchema = new schema({
               type:String
             },
             devision:{
-              type: String,
-              required: true
+              type: String
             },
             city:{
-              type: String,
-              required: true
+              type: String
             }
           }
         ],
         datePosted:{
           type: String,
         },
-        img:{
-          thumb:{
-            type: String
-          },
-          otherImages:[]
-        },
+        images:[],
         price:{
           value:{
             type:Number
@@ -84,7 +73,9 @@ var busSchema = new schema({
         } ,
         displayIndex:{
           type:Number
-        }
+        },
+        img:[{ data: Buffer, 
+          contentType: String }]
 });
 
 module.exports = mongoose.model('Business', busSchema);

@@ -26,30 +26,40 @@ export class CommonComponent implements OnInit {
  }    
  
  checkLength(data){
-   var result = JSON.parse(data)
-   console.log('Check the length of business list :%s',result.length);
-   return result.length==0 ? true:false;
+   console.log('common data set :%s',data);
+   if(data!=""){
+    var result = JSON.parse(data)
+    console.log('Check the length of business list :%s',result.length);
+    return result.length==0 ? true:false;
+   }else{
+
+   }
+   
  }
 
- jsonParse(data,display){
-    var result = JSON.parse(data)
-    var displayLoc =JSON.parse(display);
-    console.log('Parsing business result');
-     result.forEach(obj=>{
-       var cityList=[];
-       obj.location.forEach(element => {
-         if(displayLoc.location=='city'){
-           cityList.push(element.city);
-         }else if(displayLoc.location=='devision'){
-           cityList.push(element.devision);
-       }
-     });
-     const uniqueLocation = cityList.filter(this.unique);
-     console.log('Found unique location :%s',uniqueLocation.toString())
-     obj['uniqueLoc']=uniqueLocation.toString();
-     });
-     return result;
- }
+  jsonParse(data, display) {
+    var result: any = [];
+    if (data != "") {
+      var result = JSON.parse(data)
+      var displayLoc = JSON.parse(display);
+      console.log('Parsing business result');
+      result.forEach(obj => {
+        var cityList = [];
+        obj.location.forEach(element => {
+          if (displayLoc.location == 'city') {
+            cityList.push(element.city);
+          } else if (displayLoc.location == 'devision') {
+            cityList.push(element.devision);
+          }
+        });
+        const uniqueLocation = cityList.filter(this.unique);
+        console.log('=========================' + uniqueLocation.toString())
+        console.log('Found unique location :%s', uniqueLocation.length == 0)
+        obj['uniqueLoc'] = uniqueLocation;
+      });
+    }
+    return result;
+  }
 
  // processLocation(location,display){
  //   console.log('--------------------------ppppppppppppppppppppppp==========================')

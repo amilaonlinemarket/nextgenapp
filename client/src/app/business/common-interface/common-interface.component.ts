@@ -20,7 +20,7 @@ export class CommonInterfaceComponent implements OnInit {
   cities = [];
   devisions :string[];
   result:string[];
-  dataSet :string;
+  dataSet :string='';
   public loading = false;
   selectedCity: string;
   error:boolean;
@@ -56,10 +56,11 @@ export class CommonInterfaceComponent implements OnInit {
     this.utilityService.findQueryParams(this.route.queryParams).subscribe((params) => {
       console.log('Request params :%s',JSON.stringify(params));
       this.restclientService.request('get', "business", null, `root=${params.category}&sub=${params.sub}`).subscribe((data) => {
+        console.log('+++++++++++++++++data ++++++++++++++++++++'+JSON.stringify(data));
         this.metaJSON.location = "city";
         this.display = JSON.stringify(this.metaJSON);
         this.loading = false;
-        this.result = data.result;
+        this.result = data;
         this.dataSet = JSON.stringify(this.result);
         console.log('loaded data :%s',this.dataSet);
         this.template = params.viewTemplate;
@@ -80,8 +81,8 @@ export class CommonInterfaceComponent implements OnInit {
     this.devisions = this.utilityService.loadDevisions(city);
     console.log('====================devisions ================='+this.devisions)
     this.utilityService.findQueryParams(this.route.queryParams).subscribe((params) => {
-      var base = `category.root=${params.category}`;
-      criteria = base.concat(`&category.sub=${params.sub}`);
+      var base = `root=${params.category}`;
+      criteria = base.concat(`&sub=${params.sub}`);
       this.utilityService.findCity(city).subscribe((data) => {
         this.selectedCity = data.name
         console.log(this.selectedCity)
@@ -93,9 +94,11 @@ export class CommonInterfaceComponent implements OnInit {
           this.metaJSON.location = "city";
           this.display = JSON.stringify(this.metaJSON);
         }
-        console.log('Initiating rest service - type:,%s', params.category)
+        console.log('search criteria :,%s',criteria)
         this.restclientService.request('get', 'business', null, criteria).subscribe((data) => {
-          this.result = data.result
+          console.log('+++++++++++++result +++++++++++++++++ '+data);
+          this.result = data
+          console.log('result set :%s',data.result)
           this.dataSet = JSON.stringify(this.result);
           this.loading = false;
           console.log('Result set : %s', JSON.stringify(this.dataSet))
@@ -112,16 +115,16 @@ export class CommonInterfaceComponent implements OnInit {
     this.loading = true;
     this.error = false;
     var criteria;
-
+    console.log('devesion :'+devision)
     this.selectedCity = this.utilityService.displaySelectedCity(this.selectedCity, devision);
     this.utilityService.findQueryParams(this.route.queryParams).subscribe((params) => {
-      var base = `category.root=${params.category}`;
-      criteria = base.concat(`&category.sub=${params.sub}&devision=${devision}`);
+      var base = `root=${params.category}`;
+      criteria = base.concat(`&sub=${params.sub}&devision=${devision}`);
       console.log('criteira :%s', criteria)
       this.restclientService.request('get', 'business', null, criteria).subscribe((data) => {
         this.metaJSON.location = "devision";
         this.display = JSON.stringify(this.metaJSON);
-        this.result = data.result
+        this.result = data;
         this.dataSet = JSON.stringify(this.result);
         this.loading = false;
         console.log('Result set : %s', JSON.stringify(this.result))

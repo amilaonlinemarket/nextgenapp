@@ -5,8 +5,9 @@
     <div class="item col-xs-3 col-lg-3" *ngFor="let data of jsonParse(dataSet,display)">
         <div [ngClass]="data.displayIndex !=10000 ? 'thumbnail cardTop':'thumbnail cardBasic'" data-toggle="modal" [attr.data-target]="'#' + data._id" style="cursor: pointer">
         <div class="img-event">
-            <img class="group list-group-image img-fluid" src={{data.img.thumb}} alt="" onclick="">
-            <div class="text-block" *ngIf="data.price!=undefined" >{{data.price.value | currency:"LKR": "symbol-narrow"}}</div>
+            <img *ngIf="data.images[0]!=undefined" class="group list-group-image img-fluid" src={{data.images[0]}} alt=""/>
+            <img *ngIf="data.images[0]==undefined" class="group list-group-image img-fluid" src="./assets/img/blank.jpg"/>
+            <div class="text-block" *ngIf="data.price.value!=null" >{{data.price.value | currency:"LKR": "symbol-narrow"}}</div>
         </div>
         <div class="caption card-body">
             <div class="row">
@@ -20,9 +21,9 @@
                     </ul> -->
                     <div class="card-detail">
                             <h2 class="card-value" *ngIf="data.owner !=undefined">{{data.owner.name.length > 25 ? ((data.owner.name|slice:0:25)+'...'):(data.owner.name)}}</h2>
-                            <span class="per-title" *ngIf="data.owner !=undefined">{{data.owner.title}}</span>
+                            <span class="per-title" *ngIf="data.owner.title !='undefined'">{{data.owner.title}}</span>
                             <div class="card-value">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    
                                     <!-- <span  *ngFor="let loc of processLocation(data.location,jsonParse(display)); let isLast=last" > -->
                                         <!-- <span>{{doModify()}}</span> -->
                                         <!-- <div ng-init="locs = processLocation()">
@@ -31,7 +32,8 @@
                                         <!-- <span *ngFor="let x of processLocation(data.location,display) let isLast=last">
                                             {{x}}{{isLast ? '' : ', '}}
                                         </span> -->
-                                        <span    data-toggle="tooltip" title={{data.uniqueLoc}} >
+                                        <span *ngIf="data.uniqueLoc!=''" data-toggle="tooltip" title={{data.uniqueLoc}} >
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                 {{data.uniqueLoc.length > 15 ? ((data.uniqueLoc|slice:0:15)+'...'):(data.uniqueLoc)}}</span>
                                         
                                         <!-- <span *ngIf="jsonParse(display).location=='city'" >{{loc.city}}{{isLast ? '' : ', '}}</span> -->
@@ -59,29 +61,34 @@
                                             <div class="preview col-md-10">
                                                 
                                                 <div class="preview-pic tab-content">
-                                                  <div class="tab-pane active" id="1{{data._id}}"><img src="{{data.img.thumb}}" /></div>
-                                                  <div class="tab-pane" id="2{{data._id}}"><img src="{{data.img.otherImages[0]}}" /></div>
-                                                  <div class="tab-pane" id="3{{data._id}}"><img src="{{data.img.otherImages[1]}}" /></div>
-                                                  <div class="tab-pane" id="4{{data._id}}"><img src="{{data.img.otherImages[2]}}" /></div>
-                                                  <div class="tab-pane" id="5{{data._id}}"><img src="{{data.img.otherImages[3]}}" /></div>
+                                                  <div class="tab-pane active" id="1{{data._id}}">
+                                                        <img *ngIf="data.images[0]!=undefined" src="{{data.images[0]}}"/>
+                                                        <img *ngIf="data.images[0]==undefined" src="./assets/img/blank.jpg"/>
+                                                </div>
+                                                  <div class="tab-pane" id="2{{data._id}}"><img src="{{data.images[1]}}" /></div>
+                                                  <div class="tab-pane" id="3{{data._id}}"><img src="{{data.images[2]}}" /></div>
+                                                  <div class="tab-pane" id="4{{data._id}}"><img src="{{data.images[3]}}" /></div>
+                                                  <div class="tab-pane" id="5{{data._id}}"><img src="{{data.images[4]}}" /></div>
                                                 </div>
                                                 <ul class="preview-thumbnail nav nav-tabs">
-                                                  <li class="active"><a [attr.data-target]="'#1' + data._id" data-toggle="tab"><img src="{{data.img.thumb}}" /></a></li>
-                                                  <li><a [attr.data-target]="'#2' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[0]}}" /></a></li>
-                                                  <li><a [attr.data-target]="'#3' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[1]}}" /></a></li>
-                                                  <li><a [attr.data-target]="'#4' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[2]}}" /></a></li>
-                                                  <li><a [attr.data-target]="'#5' + data._id" data-toggle="tab"><img src="{{data.img.otherImages[3]}}" /></a></li>
+                                                  <li class="active"><a [attr.data-target]="'#1' + data._id" data-toggle="tab">
+                                                        <img *ngIf="data.images[0]!=undefined" src="{{data.images[0]}}"/>
+                                                        <img *ngIf="data.images[0]==undefined" src="./assets/img/blank.jpg"/></a></li>
+                                                  <li><a [attr.data-target]="'#2' + data._id" data-toggle="tab"><img src="{{data.images[1]}}" /></a></li>
+                                                  <li><a [attr.data-target]="'#3' + data._id" data-toggle="tab"><img src="{{data.images[2]}}" /></a></li>
+                                                  <li><a [attr.data-target]="'#4' + data._id" data-toggle="tab"><img src="{{data.images[3]}}" /></a></li>
+                                                  <li><a [attr.data-target]="'#5' + data._id" data-toggle="tab"><img src="{{data.images[4]}}" /></a></li>
                                                 </ul>
                                                 
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="card-detail" *ngIf="data.owner !=undefined">
                                                         <h2 class="card-value">{{data.owner.name}}</h2>
-                                                        <span class="per-title">{{data.owner.title}}</span>
-                                                        <h2 class="card-value" *ngIf="data.owner.contactNo !=undefined"><i class="fa fa-phone" style="font-size:20px"></i>
-                                                           {{data.owner.contactNo.primary}}</h2>
-                                                        <span *ngFor="let contact of data.owner.contactNo.secondary">
-                                                            <h2 *ngIf="contact!=''" class="card-value"><i class="fa fa-phone" style="font-size:20px"></i>
+                                                        <span class="per-title" *ngIf="data.owner.title !='undefined'">{{data.owner.title}}</span>
+                                                        <!-- <h2 class="card-value" *ngIf="data.owner.contactNo !=undefined"><i class="fa fa-phone" style="font-size:20px"></i> -->
+                                                           <!-- {{data.owner.contactNo.primary}}</h2> -->
+                                                        <span *ngFor="let contact of data.owner.contactNo">
+                                                            <h2  *ngIf="contact != 'NOT_GIVEN'" class="card-value"><i class="fa fa-phone" style="font-size:20px"></i>
                                                               {{contact}}</h2>
                                                         </span>
                                                         
@@ -99,14 +106,14 @@
                                                 </div> -->
                                                     <ul class="list-unstyled card-feature-list ">
                                                         <li *ngFor="let point of data.keyPoints">
-                                                                <i class="fa fa-pencil" aria-hidden="true" style="font: size 10px"></i>
+                                                                <i class="fa fa-pencil"  *ngIf="point.words !=undefined" aria-hidden="true" style="font: size 10px"></i>
                                                                 <span [ngClass]="point.isHighlight==true ? 'highlight-text':''">{{point.words}}</span></li>
                                                     </ul>
-                                                <h4 class="price" *ngIf="data.price !=undefined">Fee: <span>Rs {{data.price.value}}/{{data.price.logic}}</span></h4>
+                                                <h4 class="price" *ngIf="data.price.value !=null">Fees: <span>Rs {{data.price.value}}/{{data.price.logic}}</span></h4>
                                                 <p class="vote">
                                                     <span  *ngFor="let loc of data.location; let isLast=last" >
-                                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                         <span *ngIf="isEmpty(loc.streetAddres); else elseBlock">
+                                                                <i class="fa fa-map-marker" aria-hidden="true" *ngIf="isEmpty(loc.devision)"></i>
                                                                 {{loc.devision}}{{isLast ? '' : ', '}}
                                                         </span>
                                                         <ng-template #elseBlock>

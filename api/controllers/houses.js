@@ -107,17 +107,17 @@ sortLogic = function (number) {
     return sort
 }
 
-buildQuery= function(root,sub,city,devision){
-    var query ={};
-    if(root !=undefined){
-        query['category.root']=root
-    }if(sub!=undefined){
-        query['category.sub']=sub;
-    }if(city !=undefined){
-        query['location.city']=city
-    }if(devision!=undefined){
-        query['location.devision']=devision
-    }
-    console.log('qqqqqqqqqqqqq :'+JSON.stringify(query))
-    return query;
-}
+// buildQuery= function(root,sub,city,devision){
+//     var query ={};
+//     if(root !=undefined){
+//         query['category.root']=root
+//     }if(sub!=undefined){
+//         query['category.sub']=sub;
+//     }if(city !=undefined){
+//         query['location.city']=city
+//     }if(devision!=undefined){
+//         query['location.devision']=devision
+//     }
+//     console.log('qqqqqqqqqqqqq :'+JSON.stringify(query))
+//     return query;
+// }

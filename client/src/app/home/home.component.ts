@@ -263,7 +263,7 @@ export class HomeComponent implements OnInit {
     routerLink:"/business/hub",
     category:'construction',
     sub:'rent',
-    label:"Rent Constrction tools",
+    label:"Rent Construction tools",
     filter:'filter-con',
     viewTemplate:'common'
   },
@@ -342,7 +342,7 @@ export class HomeComponent implements OnInit {
     // routerLink:"/business/printing",
     routerLink:"/business/hub",
     category:'printing',
-    sub:'digi_print',
+    sub:'digiPrint',
     label:"Digital printing",
     filter:'filter-prt',
     viewTemplate:'common'

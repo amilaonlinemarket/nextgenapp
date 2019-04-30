@@ -10,7 +10,7 @@
 body {
   background: #fff;
   color: #666666;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Arial, Helvetica, sans-serif";
 }
 
 a {
@@ -811,7 +811,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #skills .progress .skill {
-  font-family: "Open Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 35px;
   padding: 0;
   margin: 0 0 0 20px;
@@ -1048,7 +1048,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 .card-value{
   /* text-transform: UPPERCASE; */
-  margin-bottom: 0px;
+  margin-bottom: 15px;
   font-weight: bold;
   font-size: 14px;
 }
@@ -1617,7 +1617,7 @@ label.required:after {content: " *"; color: red;}
 /** grid list view component **/
 
 body {
-  font-family: 'open sans';
+  font-family: 'Arial, Helvetica, sans-serif';
   overflow-x: hidden; 
 }
 img {
@@ -1650,7 +1650,8 @@ img {
 
 .preview-thumbnail.nav-tabs {
   border: none;
-  margin-top: 15px; }
+  margin-top: 15px;
+margin-bottom: 15px; }
   .preview-thumbnail.nav-tabs li {
     width: 18%;
     margin-right: 2.5%; }
@@ -1910,7 +1911,7 @@ border-right: 2px  solid #8c8b8b;
 }
 .topright {
   position: absolute;
-  bottom: 2ch;
+  /* bottom: 1ch; */
   right: 16px;
   font-size: 12px;
 }

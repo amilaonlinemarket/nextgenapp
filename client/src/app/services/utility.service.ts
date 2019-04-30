@@ -65,8 +65,14 @@ export class UtilityService {
   constructor(private route: ActivatedRoute) { }
 
   getCities(){
+    console.log(this.cities)
     return this.cities;
   }
+
+  getCity(id){
+    return this.cities.find(x=>x.id===id);
+  }
+
 
   findCity(id):Observable<any>{
     var tmp = this.cities[id];
@@ -82,8 +88,8 @@ export class UtilityService {
 
   loadDevisions(city:number):string[]{
     // let devisionList =[];
+    console.log(this.cities[city].divisions)
     return this.cities[city].divisions;
-
   }
 
   displaySelectedCity =function(selectedCity,devision){

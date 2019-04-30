@@ -1,10 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require('express-jwt');
+var fs = require('fs');
+var multer = require('multer'); 
+
 var auth = jwt({
   secret: 'MY_SECRET',
   userProperty: 'payload'
 });
+
+var storage = multer.diskStorage({
+  // destination
+  destination: function (req, file, cb) {
+    cb(null, './uploads/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+var upload = multer({ storage: storage });
+var data={}
 
 var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
@@ -39,4 +55,10 @@ router.post('/vehicle',ctrlVehicle.persist);
 router.get('/vehicle',ctrlVehicle.get);
 router.post('/business',ctrlBusiness.persist);
 router.get('/business',ctrlBusiness.get);
+// router.post('/upload',ctrlBusiness.upload);
 module.exports = router;
+
+
+
+
+

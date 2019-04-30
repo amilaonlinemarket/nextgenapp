@@ -14,6 +14,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 // [SH] Require Passport
 var passport = require('passport');
+ 
 
 // [SH] Bring in the data model
 require('./api/models/db');
@@ -35,9 +36,18 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// app.use('/uploads',express.static('uploads'));
 app.use(cookieParser());
 app.use(cors());
-
+app.use(function(req, res, next) {
+    //set headers to allow cross origin request.
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+  
+app.use('/uploads',express.static('uploads'));
 // [SH] Initialise Passport before using the route middleware
 app.use(passport.initialize());
 
@@ -50,6 +60,9 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
+
+
 
 // error handlers
 

@@ -1,0 +1,272 @@
+<style>
+  .control-label.required:after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top:7px;
+}
+.backColor{
+  background-color:whitesmoke;
+  color:black;
+}
+</style>
+<section>
+ 
+  <div class="container" style="padding-top: 8rem;padding-bottom: 8rem">
+    <ngx-loading [show]="loading" [config]="{backdropBackgroundColour: 'rgba(0,0,0,0.0)',
+    primaryColour: 'blue', secondaryColour: 'red', tertiaryColour: 'yellow'}">
+</ngx-loading>
+<div  [ngClass]="getColor()" id="notice">
+    {{getMessage()}} <span *ngIf='isSuccess()'></span>
+</div>
+    <form  (ngSubmit)="postFrom.valid && onSubmit()"  #postFrom="ngForm" >
+            <!-- <form  novalidate #postFrom="ngForm" > -->
+
+          <div class="form-group row">
+          <label for="category" class="col-2 col-form-label required">Category</label>
+          <div class="col-10">
+          <select id="category" name="category" class="custom-select" #cat="ngModel" [(ngModel)]="posts.category" #busCategory="ngModel"
+          (change)="changeCategory($event.target.value)" [ngClass]="{ 'is-invalid': postFrom.submitted && busCategory.invalid }" required >
+            <option [ngValue]="null">Choose a category</option>
+            <option value="education">Education</option>
+            <option value="property">Property</option>
+            <option value="auto">Autos</option>
+            <option value="construction">Building & Construction</option>
+            <option value="accomadation">Accomadation</option>
+            <option value="agri">Agriculture</option>
+            <option value="sports">Sports</option>
+            <option value="printing">Printing</option>
+            <option value="animal">Animals</option>
+            <option value="health">Health</option>
+            <option value="wed">Wedding & Entertainment</option>
+            <option value="beauty">Beauty & spa</option>
+            <option value="pestcontrol">Pest Control</option>
+          </select>
+          <div *ngIf="postFrom.submitted && busCategory.invalid" class="invalid-feedback">
+                <div *ngIf="busCategory.errors.required">category is required</div>
+            </div>
+          </div>
+          </div>
+         
+        <div class="form-group row">
+          <label for="sub" class="col-2 col-form-label required">Sub category</label>
+          <div class="col-10">
+          <select id="sub" name="sub" class="form-control custom-select" [(ngModel)]="posts.sub" #subCategory="ngModel"
+          [ngClass]="{ 'is-invalid': postFrom.submitted && busCategory.invalid }" required >
+              <option [ngValue]="null">Choose</option>
+              <option *ngFor="let v of subCat"
+              [ngValue]="v.id">{{v.name}} </option>
+            </select>
+            <div *ngIf="postFrom.submitted && busCategory.invalid" class="invalid-feedback">
+                <div *ngIf="busCategory.errors.required">sub category is required</div>
+            </div>
+        </div>
+        </div>
+        <div class="form-group row">
+                
+            <label for="name-input" class="col-2 col-form-label required">Business Name</label>
+            <div class="col-10">
+              <input class="form-control" type="text" id="name-input" name="name" #busName="ngModel" [(ngModel)]="posts.name"
+              [ngClass]="{ 'is-invalid': postFrom.submitted && busName.invalid }" required >
+              <div *ngIf="postFrom.submitted && busName.invalid" class="invalid-feedback">
+                    <div *ngIf="busName.errors.required">business name is required</div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-group row">
+            <label for="description-input" class="col-2 col-form-label">Description</label>
+            <div class="col-10">
+                <textarea class="form-control" rows="3" id="description-input" name="description" [(ngModel)]="posts.description" ></textarea>
+                <p class="help-block">Tell about your business breifly</p>
+            </div>
+            
+        </div>
+     
+        <div class="form-group row">
+            <label for="description-input" class="col-2 col-form-label">Features</label>
+            <div class="col-8">
+                <input class="form-control" type="text" id="point-input" #pointVal name="pointVal" >
+                <p class="help-block">List your business features </p>
+            </div>
+            <div class="col-2">
+              <input type="button" class="btn btn-primary" (click)="addFeatures(pointVal.value);pointVal.value=''" value="Add to bucket"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-12">
+                  <table id="points" class="table table-bordered" style=" padding-top: 5px">
+                      <thead >
+                          <tr>
+                              <th class="col-sm-1"></th>
+                              <th class="col-sm-9">Features</th>
+                              <th class="col-sm-1"></th>
+                              <th class="col-sm-1">Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let k of features;let i = index">
+                            <td> <input type="radio" (change)="setInFront($event,i)" value="'#2' + i" name="display" data-toggle="tooltip" title="display in front page"/></td>
+                              <td> {{ k.words }} </td>
+                              <td><input type="checkbox" (change)="makeImportant($event,i)" data-toggle="tooltip" title="important feature in my Ad"/></td>
+                              <td>
+                                    <button type="submit" class="btn btn-danger" (click)="deleteRow(i);" >
+                                            <i class="fa fa-trash" aria-hidden="true"> </i>
+                                        </button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                
+              </div>
+        </div>
+        <div class="form-group row">
+            <label for="owner-input" class="col-2 col-form-label">Owner</label>
+            <div class="col-10">
+              <input class="form-control" type="text" id="owner-input" 
+              name="owner" [(ngModel)]="posts.owner">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="owner-email-input" class="col-2 col-form-label">Owner email</label>
+            <div class="col-10">
+              <input class="form-control" type="text" id="email-input" 
+              name="email" [(ngModel)]="posts.email">
+            </div>
+          </div>
+          <div class="form-group row">
+              <label for="phone-input" class="col-2 col-form-label">Contact Number</label>
+              <div class="col-6">
+                <input class="form-control" type="text" id="phone-input" 
+                name="phone"  #phone>
+              </div>
+              <div class="col-2">
+                <input type="button" class="add-row" (click)="addContactNo(phone.value);phone.value=''" value="Add to bucket"/>
+                  <!-- <button class="add-row" (click)="addMe(pointVal.value); "> Add</button> -->
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-8">
+                    <table id="contactNos" class="table table-bordered" style=" padding-top: 5px">
+                        <thead >
+                            <tr>
+                                <th class="col-sm-6">Contact Numbers</th>
+                                <th class="col-sm-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contactNo of contactNumbers; let i = index">
+                                <td> {{ contactNo }} </td>
+                                <td> 
+                                    <input type="button" class="btn btn-danger" (click)="deleteContactNo(i);" value="Delete"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="address-input" class="col-2 col-form-label">District</label>
+                <div class="col-3">
+                  <!-- <select id="city" name="city" class="form-control custom-select"  ngModel #city="ngModel" (ngModelChange)="onChange($event)"> -->
+                      <select id="city" name="city" class="form-control custom-select"  [(ngModel)]="posts.address.city" #city="ngModel"  (ngModelChange)="onChange($event)">
+                          <option [ngValue]="null">Choose</option>
+                        <option *ngFor="let city of cities" [(ngValue)]="city.id">{{city.name}}</option>
+                  </select>
+                </div>
+                <label for="address-input" class="col-1 col-form-label">Region</label>
+                    <div class="col-3 ">
+                        <select id="devision" name="devision" class="form-control custom-select"  #devision>
+                            <option [ngValue]="null">Choose</option>
+                          <option *ngFor="let devision of devisions" >{{devision}}</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="form-group row">
+                <label for="address-input" class="col-2 col-form-label">Street Address</label>
+                <div class="col-6">
+                    <input class="form-control" type="text" id="address-input" 
+                    name="address"  #address>
+                    <p class="help-block">Street address, P.O. box, company name, c/o</p>
+                    
+                    <!-- <p class="help-block">Street address, P.O. box, company name, c/o</p> -->
+                  </div>
+                  <div class="col-4">
+                      <input type="button" class="add-address-row" (click)="addAddress(city.value,devision.value,address.value);address.value=''" 
+                      value="Add to bucket"/>
+                        <!-- <button class="add-row" (click)="addMe(pointVal.value); "> Add</button> -->
+                    </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                      <table id="location" class="table table-bordered" style=" padding-top: 5px">
+                          <thead >
+                              <tr>
+                                  <th class="col-sm-6">Address</th>
+                                  <th class="col-sm-2">Region</th>
+                                  <th class="col-sm-2">District</th>
+                                  <th class="col-sm-2">Action</th>
+                                  <!-- <th>Email</th> -->
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let k of location;let i = index">
+                                  <td> {{ k.streetAddress }} </td>
+                                  <td> {{ k.devision }} </td>
+                                  <td> {{ k.city }} </td>
+                                  <td> 
+                                      <input type="button" id="deleteAddress" class="btn btn-danger" (click)="deleteAddress(i);" value="Delete"/>
+                                    <!-- <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button>  -->
+                                  </td>
+                              </tr>
+                             
+                              <!-- <tr> -->
+                                  <!-- <td><input type="checkbox" name="record"></td> -->
+                                  <!-- <td><input type='text' name='point' ngModel #point='ngModel' class='form-control' value='mmmmmm'/></td> -->
+                                  <!-- <td>peterparker@mail.com</td> -->
+                              <!-- </tr> -->
+                          </tbody>
+                      </table>
+                  </div>
+            </div>
+            <div class="form-group row">
+                <label for="price-input" class="col-2 col-form-label">Price</label>
+                <div class="col-5">
+                  <input class="form-control" type="text" id="price-input" 
+                  name="price" [(ngModel)]="posts.price">
+                </div>
+                <div class="col-5">
+                  <select id="rate" name="rate" class="form-control custom-select" [(ngModel)]="posts.rate">
+                      <option [ngValue]="null">Choose</option>
+                    <option value="hr">per hour</option>
+                    <option value="day">per day</option>
+                    <option value="month">per month</option>
+                    <option value="sq">per squre feet</option>
+                    <option value="job">per job</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="city-input" class="col-2 col-form-label">Images</label>
+                <div class="col-5">
+                    <input id="image" type="file" multiple />
+                    <p class="help-block">upload maximum 5 images.select multiple images</p>
+                </div>
+              </div>
+
+    <!-- </div> -->
+    <!--<div class="form-group" [ngClass]="displayFieldCss('email')">
+      <div class="col-sm-12">
+        <label for="email" class="control-label required">Email</label>
+        <input type="text" id="email" class="form-control" >
+        <app-field-error-display [displayError]="isFieldValid('email')" errorMsg="Please inform your email">
+        </app-field-error-display>
+      </div>
+  </div> -->
+    <button  class="btn btn-primary">Submit</button>
+   
+    </form>
+
+      </div>
+    </section>

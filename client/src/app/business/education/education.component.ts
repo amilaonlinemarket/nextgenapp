@@ -52,6 +52,7 @@ export class EducationComponent implements OnInit {
       console.log('Found unique location :%s',uniqueLocation.toString())
       obj['uniqueLoc']=uniqueLocation.toString();
       });
+      console.log('++++++++++++++++++++++++++result++++++++++++++ '+JSON.stringify(result));
       return result;
   }
 

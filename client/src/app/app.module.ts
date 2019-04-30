@@ -38,6 +38,8 @@ import {ConstructionComponent} from './support/construction/construction.compone
 import {HealthComponent} from './business/health/health.component';
 import { PestcontrolComponent } from './business/pestcontrol/pestcontrol.component';
 import { CommonComponent } from './business/common/common.component';
+import { PostsComponent } from './posts/posts.component';
+import { FieldErrorDisplayComponent } from './field-error-display/field-error-display.component';
 
 const routes: Routes = [
   {
@@ -96,6 +98,10 @@ const routes: Routes = [
   path:'business/hub',
   component:CommonInterfaceComponent
 },
+{
+path: 'posts',
+component: PostsComponent
+},
   {
     path:'',
     component:HomeComponent
@@ -132,7 +138,9 @@ const routes: Routes = [
     ConstructionComponent,
     HealthComponent,
     PestcontrolComponent,
-    CommonComponent
+    CommonComponent,
+    PostsComponent, 
+    FieldErrorDisplayComponent
     // NgbdDropdownBasicComponent
   ],
   imports: [
