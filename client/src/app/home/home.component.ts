@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('-----------------------------home-------------------------------')
+    console.log('Application loading with home page')
 
     $('#portfolioId').hide();
 
